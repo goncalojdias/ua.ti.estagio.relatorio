@@ -1,4 +1,10 @@
-# University of Aveiro Thesis Template
+# University of Aveiro Modified Thesis Template
+
+This is a modified version of UA thesis template, used for internship 
+report.
+
+> Everything bellow this line is from the template.
+---
 
 A thesis LaTeX template that complies with the University of Aveiro's
 guidelines and provides a simple CLI workflow around `make` that was developed
