@@ -3,6 +3,8 @@
 This is a modified version of UA thesis template, used for internship 
 report.
 
+The latest version of this report is always stored in ***report.pdf***.  
+
 > Everything bellow this line is from the template.
 ---
 
