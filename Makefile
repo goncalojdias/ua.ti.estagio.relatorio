@@ -15,7 +15,7 @@ LATEXMK_FLAGS += -outdir=${OUT}
 LATEXMK_FLAGS += -pdflatex="pdflatex -file-line-error --shell-escape %O %S"
 # LATEXMK_FLAGS += -e '$$makeindex=q/sh -c "cd `dirname "%D"`" ; makeindex %O -o "`basename "%D"`" "`basename "%S"`";/'
 
-DIST := $(shell lsb_release -si)
+DIST := $(shell )
 PLATFORM := $(shell uname)
 
 all: build
@@ -62,7 +62,11 @@ clean_aux:
 
 cleanall: 
 	@echo "Deleting all files in the build directory"
-	@rm -rf "${OUT}/*" 
+	@rm -rf "${OUT}" 
+
+push: cleanall build
+	@cp ${OUT}/matter.pdf ./report.pdf
+	@git push origin main
 
 lint:
 ifeq ($(strip $(texfile)),)
