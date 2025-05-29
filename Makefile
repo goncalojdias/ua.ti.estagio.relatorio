@@ -66,6 +66,8 @@ cleanall:
 
 push: cleanall build
 	@cp ${OUT}/matter.pdf ./report.pdf
+	@git add ./report.pdf
+	@git commit -m "Latest report"
 	@git push origin main
 
 lint:
