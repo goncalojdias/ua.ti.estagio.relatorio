@@ -2,7 +2,7 @@
 \label{chapter:work-done}
 
 \begin{introduction}
-    Neste capítulo irei abordar todo o trabalho desenvolvido durante o período de estágio, organizado em três grandes secções. Na primeira secção abordarei o trabalho realizado durante a analise de \textit{APIs} e bibliotecas, incluindo o porque da escolha final de cada uma.A segunda secção visa comentar o trabalho realizado na interface gráfica do projeto \textit{aniposture}. A terceira secção comenta o trabalho desenvolvido no respetivo \textit{backend}.
+    Neste capítulo irei abordar todo o trabalho desenvolvido durante o período de estágio, organizado em quatro grandes secções. Na primeira farei uma pequena descrição do projeto \textit{aniposture}. Na segunda abordarei o trabalho realizado durante a analise de \textit{APIs} e bibliotecas, incluindo o porque da escolha final de cada uma. A terceira secção visa comentar o trabalho realizado na interface gráfica do projeto \textit{aniposture}. E por fim comentarei o trabalho desenvolvido no respetivo \textit{backend}.
 \end{introduction}
 
 \section{Descrição do projeto}\label{sec:project} % Fechada
@@ -10,11 +10,11 @@ O projeto \textit{Aniposture} apresenta uma solução inovadora que integra disp
 
 O objetivo consiste em proporcionar uma gestão eficiente e precisa do comportamento dos animais, através de coleiras equipadas com sensores que registam o movimento, medem a temperatura, avaliam a postura e determinem a localização via \acs{gps}. Os módulos de comunicação das coleiras enviam os dados para uma infraestrutura \textit{cloud}, que centraliza e processa a informação.
 
-Cada coleira incorpora uma \textit{IMU}, Unidade de Medição Inercial, com uma frequência de amostragem ajustável, o que permite a recolha de dados sobre a aceleração e a orientação.Desta forma, é possível identificar padrões de movimento e posturas, como estar deitado, em pé ou em movimento. A coleira integra sensores de temperatura que permitem monitorar tanto a temperatura atmosférica como a do temperatura animal. O dispositivo regista igualmente o estado da bateria e emite alertas quando o nível se encontra baixo. Inclui ainda uma interface NFC que possibilita a configuração local dos dispositivos.
+Cada coleira incorpora uma \textit{IMU}, Unidade de Medição Inercial, com uma frequência de amostragem ajustável, o que permite a recolha de dados sobre a aceleração e a orientação.Desta forma, é possível identificar padrões de movimento e posturas, como estar deitado, em pé ou em movimento. A coleira integra sensores de temperatura que permitem monitorar tanto a temperatura atmosférica como a do temperatura animal. O dispositivo regista igualmente o estado da bateria e emite alertas quando o nível encontra-se baixo. Inclui ainda uma interface \acs{nfc} que possibilita a configuração local dos dispositivos.
 
 A plataforma na \textit{cloud} disponibiliza a informação por meio de uma interface \textit{web}. Entre as funcionalidades incluem-se a visualização do estado das coleiras e o acompanhamento em tempo real das localizações \acs{gps}. A interface apresenta ainda gráficos e filtros por coleira e por período temporal, o que permite consultar a informação de forma rápida e eficaz.
 
-A combinação da tecnologia integrada nas coleiras com a infraestrutura \textit{cloud} coloca o projeto \textit{Aniposture} na vanguarda da inovação no sector agropecuário, o que favorece uma gestão mais eficiente e sustentável dos rebanhos.
+A combinação da tecnologia integrada nas coleiras com a infraestrutura \textit{cloud} coloca o projeto \textit{aniposture} na vanguarda da inovação no sector agropecuário, o que favorece uma gestão mais eficiente e sustentável dos rebanhos.
 
 \section{Análise de bibliotecas}\label{sec:analysis}
 Durante este estágio, foram-me atribuídas tarefas de análise e pesquisa, com o objetivo de identificar e selecionar as ferramentas mais adequadas que cumprissem os requisitos necessários para o desenvolvimento da aplicação. Foram, assim, realizadas duas grandes análises: a primeira sobre as \textit{APIs} de georreferenciação e a segunda nas \textit{APIs} de visualização gráfica.
@@ -34,13 +34,6 @@ Embora as capacidades de desenho vetorial fossem positivas, apresentava, na altu
 
 Perante este conjunto de constrangimentos, e ao considerar os requisitos de georreferenciação do projeto, optou-se por bibliotecas que demonstraram maior sinergia em termos de performance, facilidade de uso e suporte nativo às funcionalidades pretendidas.
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=0.7\textwidth]{figs/ol.png}
-	\caption[Open Layers]{OpenLayers}
-	\label{fig:ol}
-\end{figure}
-
 \subsubsection{\textbf{Google Maps}}\label{sec:sub_gm}
 O \textit{google maps} é, muito provavelmente, o sistema de mapas mais utilizado e atualizado a nível mundial. Por essa razão, foi considerada a sua utilização, tendo sido analisada a forma como é implementado e as suas funcionalidades. Inicialmente, esta solução revelou-se a mais promissora, uma vez que permite adicionar camadas vetoriais, marcadores, vista em satélite e possui um bom desempenho. 
 
@@ -51,10 +44,22 @@ Ao contrário do \textit{Openlayers}, \ref{sec:sub_ol}, esta é uma solução pa
 Embora as suas capacidades técnicas fossem adequadas, a sua integração com outros serviços da \textit{Google} e a qualidade das suas vistas de satélite fossem vantajosas, a estrutura de custos e a incerteza associada ao escalonamento da utilização impediram a sua seleção final. A prioridade recaiu sobre bibliotecas que oferecessem um modelo de licenciamento mais previsível e economicamente sustentável.
 
 \begin{figure}[!h]
+	\centering
+	\begin{subfigure}[c]{0.45\textwidth}
+	\centering
+	\includegraphics[width=\textwidth]{figs/ol.png}
+	\caption[Open Layers]{OpenLayers}
+	\label{fig:ol}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[c]{0.45\textwidth}
 		\centering
-		\includegraphics[width=.7\textwidth]{figs/gm.png}
+		\includegraphics[width=\textwidth]{figs/gm.png}
 		\caption[Google maps]{Google Maps}
 		\label{fig:gm}
+	\end{subfigure}
+	\caption{}
+    \label{fig:1}
 \end{figure}
 
 \clearpage
@@ -67,7 +72,7 @@ Tendo em conta todos os requisitos levantados, o \textit{mapbox} cumpre-os de fo
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{figs/mapbox.png}
+    \includegraphics[width=0.8\textwidth]{figs/mapbox.png}
     \caption[Mapbox]{Mapbox}
     \label{fig:mapbox}
 \end{figure}
@@ -82,7 +87,7 @@ Após analise e avaliação das bibliotecas de georreferenciação, realizei uma
 
 
 \subsubsection{\textbf{D3js}}\label{sec:d3js}
-Esta foi a biblioteca identificada pelo orientador, como uma possível opção a implementar. O \textit{d3js} não é uma biblioteca de gráficos tradicional, uma vez que possui o conceito de "gráficos". Quando visualizamos os dados com o \textit{d3js}, estamos a compor uma variedade de objetos primitivos, como linhas, círculos, retângulos, entre outros. 
+Esta foi a biblioteca identificada pelo orientador, como uma possível opção a implementar. O \textit{d3js} não é uma biblioteca de gráficos tradicional, uma vez que não possui o conceito de "gráficos". Quando visualizamos os dados com o \textit{d3js}, estamos a compor uma variedade de objetos primitivos, como linhas, círculos, retângulos, entre outros. 
 
 Apesar de apresentar um desempenho elevado e permitir um elevado nível de interatividade, a sua utilização é consideravelmente mais complexa que outras alternativas.
 
@@ -122,12 +127,12 @@ O \textit{Apache Echarts} foi a solução escolhida para integrar no projeto, n�
 
 \clearpage
 \section{Interface gráfica}\label{sec:frontend}
-Nesta fase, será abordado com detalhes todo o trabalho realizado no \textit{frontend}/interface gráfica da aplicação, incluindo as dificuldades encontradas, conhecimentos adquiridos, e as tarefas realizadas durante o desenvolvimento.  
+Nesta fase, será abordado com detalhes todo o trabalho realizado no \textit{frontend}/interface gráfica da aplicação, incluindo as dificuldades encontradas, conhecimentos adquiridos e as tarefas realizadas durante o desenvolvimento.  
 
 \subsection{Svelte 5}\label{sec:svelte5} % Fechada
 Durante a fase de desenvolvimento, esta foi das primeiras tarefas que foram-me atribuídas. No último trimestre de 2024, a equipa responsável pelo \textit{svelte} lançou uma nova versão, que alterou conceitos fundamentais da \textit{framework}. Fui, então, encaminhado a aprender esta nova versão, testar as novas funcionalidades, compreender as principais alterações e analisar o processo de atualização de um projeto desenvolvido na versão 4 para a versão 5 do \textit{svelte}.  
 
-O \textit{svelte} 5 introduziu um novo conceito denominado \textit{runes} (runas), que consistem num mecanismo para declarar estado de reatividade. As runas são símbolos que influenciam o compilador do svelte, permitem ao programador definir, de forma explícita, quais objetos são reativos e quais não são, \autoref{fig:svelte5}. 
+O \textit{svelte} 5 introduziu um novo conceito denominado \textit{runes} (runas), que consistem num mecanismo para declarar estado de reatividade. As runas são símbolos que influenciam o compilador do \textit{svelte}, permitem ao programador definir, de forma explícita, quais objetos são reativos e quais não são, \autoref{fig:svelte5}. 
 
 Nas versões anteriores, o \textit{svelte} tornava todos os objetos reativos por padrão, isto dificultava a perceção de quais objetos podiam, efetivamente, provocar alterações na interface gráfica.
 
@@ -155,7 +160,6 @@ Uma das alterações introduzidas nesta nova versão do \textit{svelte} foi a fo
 
 Na versão anterior, utilizava-se a palavra-chave \textit{export}, o que permitia declarar propriedades em qualquer parte do componente. Essa flexibilidade, embora útil, podia tornar o código menos organizado e mais difícil de compreender. Na nova versão, todos os elementos recebidos pelo componente são definidos num único local, o que promove uma estrutura mais clara e facilita a leitura e manutenção do código. Ver \autoref{fig:propsSvelte}.
 
-\clearpage
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{figs/props.png}
@@ -204,7 +208,7 @@ Esta foi a minha primeira experiencia com tailwind. Encontrei algumas dificuldad
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{figs/tailwind.png}
+    \includegraphics[width=0.8\textwidth]{figs/tailwind.png}
     \caption{Exemplo de interface criada com \textit{tailwind}}
     \label{fig:tailwind}
 \end{figure}
@@ -214,20 +218,55 @@ O \textit{flowbite} é uma biblioteca de componentes baseada em \textit{tailwind
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.75\textwidth]{figs/flowbite.png}
+    \includegraphics[width=0.7\textwidth]{figs/flowbite.png}
     \caption{Interface com componentes \textit{flowbite}}
     \label{fig:flowbite}
+\end{figure}
+
+\clearpage 
+\subsection{Alterações no \textit{design system}} % Fechada
+Uma das tarefas que executei durante o desenvolvimento deste projeto foi a reformulação da interface, alteração que abrangeu todas as páginas da aplicação.
+
+Para tornar essa reformulação possível, alterei o tema principal. O tema anterior, gerado automaticamente pelo \textit{tailwind} a partir de uma única cor, originou uma paleta cromática que se afastava da identidade visual pretendida para a aplicação.
+
+A \autoref{fig:tailwindGeneratedColors} mostra que as tonalidades mais claras da aplicação apresentavam um azul claro que não combinavam com as restantes cores. Para corrigir essa incoerência, alterei a paleta cromática para um sistema de sombras, mantendo a mesma cor base em variações mais claras e mais escuras. O novo esquema confere um aspeto mais agradável à seleção de botões, às colunas das tabelas, aos realces e aos demais elementos.
+
+Esta mudança de paleta assegura que a interface respeite a identidade visual definida. A cor base mantém-se, mas apresenta-se em sombras progressivamente mais claras e mais escuras, o que gera uma hierarquia visual consistente. Os componentes que antes exibiam um azul claro passam a integrar-se no conjunto cromático, o que melhora a leitura e a navegação. O resultado oferece uma experiência mais coesa e agradável para o utilizador.
+
+Foram também efetuadas alterações às bibliotecas de ícones. Anteriormente, a aplicação dispunha de uma biblioteca com um número reduzido de ícones, fator que limitava as possibilidades de desenvolvimento. Instalei uma nova biblioteca, \textit{Tabler}\footnote{\href{https://tabler.io/icons}{Tabler - https://tabler.io/icons}}, que apresenta uma vasta gama de opções.
+
+Com o objetivo de tornar a interface mais harmoniosa, introduziram-se alterações que permitem a várias páginas reutilizar componentes, quer do \textit{flowbite}, quer desenvolvidos internamente.
+
+Esta abordagem aumenta a consistência visual e reduz o esforço necessário de desenvolvimento, ao evitar duplicação de código e simplificar a manutenção. Como resultado, a aplicação apresenta um aspeto mais uniforme e permite atualizações mais rápidas no futuro.
+
+\begin{figure}[!h]
+	\centering
+	\begin{subfigure}[c]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figs/shades.png}
+		\caption{Cores geradas por sombra}
+		\label{fig:shadesColors}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[c]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figs/tailwindGeneratedColors.png}
+		\caption{Cores geradas pela tailwind}
+		\label{fig:tailwindGeneratedColors}
+	\end{subfigure}
+	\caption{Sistemas de cores}
+    \label{fig:colorSystem}
 \end{figure}
 
 \subsection{Componente Mapa}\label{sec:map_comp} % Fechada
 Um dos trabalhos mais complexos nesta fase da interface foi a implementação do mapa. Trata-se de um elemento com caracteristicas especiais, que exige funcionalidades como o carregamento de pontos, executar ações ao detetar cliques, carregar \textit{layouts}, atualização automatica de novas informações, desenho de elementos, entre outros. 
 
-Um dos pontos mais importantes durante o desenvolvimento deste componente foi garantir que os dados fossem carregados e atualizados automaticamente. Este aspeto revelou-se particularmente importante devido à arquitetura (ref arquitetura do sistema) \textit{multi tenant} do projeto. Ao escolher um novo \textit{tenant}, todas as informações tinham de ser limpas e substituídas por novas. Para atingir este objetivo, foram utilizadas várias ferramentas do \textit{svelte 5}, \autoref{sec:svelte5}.
+Um dos pontos mais importantes durante o desenvolvimento deste componente foi garantir que os dados fossem carregados e atualizados automaticamente. Este aspeto revelou-se particularmente importante devido à arquitetura \textit{multi tenant} do projeto. Ao escolher um novo \textit{tenant}, todas as informações tinham de ser limpas e substituídas por novas. Para atingir este objetivo, foram utilizadas várias ferramentas do \textit{svelte 5}, \autoref{sec:svelte5}.
 
 \subsubsection{\textbf{Layers (Camadas)}}\label{sec:layers}
-As \textit{Layers} (ou camadas) são componentes principais em qualquer sistema de mapas. O \textit{mapbox} permite a adição de diversas \textit{camadas} ao mapa, como elementos vetoriais, simbolos, imagens \textit{raster}, modelos 3D, entre outros. Estas camadas permitem representar diferentes tipos de dados geográficos e visuais, sendo fundamentais para a construção de mapas interativos.
+As \textit{Layers}, ou camadas, são componentes principais em qualquer sistema de mapas. O \textit{mapbox} permite a adição de diversas \textit{camadas} ao mapa, como elementos vetoriais, simbolos, imagens \textit{raster}, modelos 3D, entre outros. Estas camadas permitem representar diferentes tipos de dados geográficos e visuais, sendo fundamentais para a construção de mapas interativos.
 
-Na criação deste componente, foram adicionadas duas camadas para cada tipo de animal existente (ref arquitetura do sistema). Uma das camadas é responsável por mostrar todos os elementos, enquanto a outra exibe apenas os elementos selecionados.
+Na criação deste componente, foram adicionadas duas camadas para cada tipo de animal existente. Uma das camadas é responsável por mostrar todos os elementos, enquanto a outra exibe apenas os elementos selecionados.
 
 \begin{figure}[!h]
 	\centering
@@ -269,6 +308,39 @@ Como ilustrado na \autoref{fig:layer}, na camada correspondente a todos os eleme
     \label{fig:mapLayersUpdate}
 \end{figure}
 
+\subsubsection{}\label{sec:geoJsonConverter}
+Uma das funcionalidades que tive de implementar, de forma a facilitar a gestão dos polígonos e dos pontos no mapa, foi a tradução de todos os pontos das camadas para \textit{geoJson}\cite{rfc7946}. Esta conversão, de pontos para \textit{geoJson}, formata toda a informação num padrão reconhecido por múltiplos sistemas. Desta forma, é possível editar e exibir a informação, independentemente da fonte e do formato de origem dos dados.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.55\textwidth]{figs/generateFeature.png}
+	\caption{Função \textit{generateFeature}}
+	\label{fig:generateFeature}
+\end{figure}
+
+No nosso caso, extraímos a latitude e longitude armazenadas nos pontos e convertemos-las numa lista de pontos \textit{geoJson}. Uma das vantagens do \textit{geoJson} é a possibilidade de associar propriedades a cada ponto, que podem ser acedidas posteriormente, ao clicar num ponto. Após gerar cada uma das \textit{features} a partir dos pontos e inseri-las nas camadas corretas, \autoref{fig:pushFeatures}, procedemos à atualização de todas as \textit{sources} do mapa de forma a carregar os novos dados, \autoref{fig:updateSources}.
+
+% Concat não faz sentido aqui. O concat faz referencia ao desenho de poligonos, o facto de contenarmos features que desenhamos e features que já estão no mapa.
+\begin{figure}[!h]
+	\centering
+	\begin{subfigure}[c]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figs/updateSources.png}
+		\caption{Atualizar \textit{sources} do mapa}
+		\label{fig:updateSources}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[c]{0.35\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figs/pushFeatures.png}
+		\caption{Adicionar features às layers}
+		\label{fig:pushFeatures}
+	\end{subfigure}
+	\caption{Atualizar e gerar \textit{geoJson features}}
+    \label{fig:updateFeatures}
+\end{figure}
+
+\clearpage
 \subsubsection{\textbf{Marcadores}}\label{sec:markers}
 Antes da utilização das camadas vetoriais, descritas na \ref{sec:layers}, foram realizados alguns testes com os marcadores nativos do mapbox. 
 
@@ -276,7 +348,7 @@ Um marcador é uma representação visual de uma coordenada especifica no mapa. 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.65\textwidth]{figs/markers.png}
+    \includegraphics[width=0.6\textwidth]{figs/markers.png}
     \caption{Exemplo de marcadores}
     \label{fig:markers}
 \end{figure}
@@ -304,12 +376,12 @@ Para facilitar a criação do mapa e simplificar o desenvolvimento de novos sist
     \label{fig:mapUtils}
 \end{figure}
 
-\clearpage
-% Colocado em cima aparece em cima da imagem
 
+\clearpage
 \subsubsection{\textbf{Desenho de poligonos}}\label{sec:polyDraw}
 Uma das funcionalidades mais interessantes que desenvolvi foi a implementação de um sistema de desenho e edição de poligonos sobre o mapa.
-% Colocado aqui aparece ao lado e em baixo da imagem.
+
+Durante a pesquisa de funcionalidades semelhantes, deparei-me com uma ferramenta que aproxima-se com a nossa ideia para esta implementação. Para concretizar esta parte da aplicação, inspirei-me no \textit{geojson.io}\footnote{\href{https://geojson.io/}{geojson.io - https://geojson.io/}}. Esta é uma ferramenta \textit{online}, frequentemente utilizada para verificar conteúdos \textit{geojson} e efetuar pequenas alterações.
 
 Esta funcionalidade foi implementada em cima de um \textit{plugin} criado pela comunidade, \textit{mapbox-gl-draw}\cite{mapbox.docs.url}, que permite adicionar funcionalidades de desenho diretamente sobre o mapa. Um dos elementos que deram mais esforço na implementação desta funcionalidade foi a componente de edição. 
 
@@ -317,7 +389,7 @@ Este permite ao utilizador remover, mover, aumentar e diminuir poligonos desenha
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.7\textwidth]{figs/draw.png}
+    \includegraphics[width=0.55\textwidth]{figs/draw.png}
     \caption{Desenhar polígonos}
     \label{fig:drawPoly}
 \end{figure}
@@ -328,14 +400,56 @@ O sistema funciona conforme representado na \autoref{fig:flowchartDraw}. Esta ab
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{figs/flowchart_draw.png}
+    \includegraphics[width=0.85\textwidth]{figs/flowchart_draw.png}
     \caption{\textit{Flow} de edição de poligonos}
     \label{fig:flowchartDraw}
 \end{figure}
 
+Após definir o fluxo que pretendia para esta funcionalidade desenvolvi os sistemas responsáveis pele funcionamento do sistema. Da mesma forma que foram criadas \textit{geoJson featuresCollections} para as camadas com pontos, foi também definido uma camada para conter este polígonos.
+
+Ao pressionar o botão de desenhar, altera-se o modo do controlo para desenho. Com este modo ativo, é possível desenhar os polígonos, este modo fica ativado até fechamos o poligono. Ao fechar-se esse polígono, ativa-se um evento, \textit{draw.create}, que obtém a \textit{feature} desenhada, concatena-a com as restantes \textit{features} na camada e desliga o modo de desenho.
+
+Ao pressionar o botão de editar, todas as \textit{features} são carregadas no controlador de desenho e é ativado o modo de edição. Com este modo ativo, o utilizador consegue realizar todo o tipo de alterações, como apagar e redimensionar poligonos. 
+
+Durante o modo de edição, não é permitido ao utilizador criar novos poligonos, esta abordagem foi implementada para evitar a ativação do evento \textit{draw.create}, que poderia causar problemas de integridade na nossa camada. Por fim, ao pressionar o botão de guardar, limpamos a antiga camada e guardamos todos os polígonos, tanto os alterados como os que permanecem inalterados. Ao pressionar no cancelar são simplesmente removidos todos os poligonos do controlador de desenho e o modo de edição é desativado. Existe ainda um botão para remover os poligonos selecionados, que remove simplesmente os que se tem selecionado.
+
+\begin{figure}[!h]
+	\centering
+	\begin{subfigure}[c]{0.52\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figs/saveEditFeatures.png}
+		\caption{Código guardar \textit{features} editadas}
+		\label{fig:saveEditFeature}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[c]{0.38\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figs/drawCancelRemove.png}
+		\caption{Código desenhar, cancelar e editar}
+		\label{fig:drawCancelEdit}
+	\end{subfigure}
+	\caption{Partes do código de edição de poligonos}
+    \label{fig:codeEditPoly}
+\end{figure}
+
+% \subsubsection{\textbf{Camada Heatmap}}\label{sec:heatmap}
+
+
+% \begin{multicols}{2}
+% Foi ainda criado, neste componente, uma camada que permite a visualização de um \textit{heatmap}, o qual evidencia os locais com maior concentração de pontos, o que facilita a verificação de padrões nos dados.
+
+% \columnbreak
+
+% \begin{center}
+% 	\includegraphics[width=0.8\columnwidth]{figs/heatmap.png}
+% 	\captionof{figure}{Camada \textit{heatmap}}
+% 	\label{fig:heatmap}
+% \end{center}
+% \end{multicols}
+
 \clearpage
 \subsection{Página \textit{reset palavra-passe}}\label{sec:resetPassword} % Por rever
-Uma das tarefas que realizei durante este estágio foi a criação das páginas e do sistema para recuperar palavras passe. No que diz respeito à interface, foi criada uma nova rota que permite ao utilizador indicar o seu endereço de email para receber um \textit{link} de recuperação, bem como uma página dedicada para a alteração da palavra-passe. 
+Uma das tarefas que realizei durante este estágio foi a criação das páginas e do sistema para recuperar palavras-passe. No que diz respeito à interface, foi criada uma nova rota que permite ao utilizador indicar o seu endereço de email para receber um \textit{link} de recuperação, bem como uma página dedicada para a alteração da palavra-passe. 
 
 Todo este sistema foi implementado na mesma rota, \textit{/reset-pass}. Ao aceder a esta página, o utilizador é redirecionados para um ecrã onde lhe é solicitado a inserir o endereço de \textit{email} associado à sua conta. Após inserir o \textit{email} e clicar no botão \textit{"Send password reset email"}, é enviado um \textit{email} com instruções de recuperação. Caso o envio seja bem-sucedido, é apresentada uma mensagem de sucesso ao utilizador.
 
@@ -374,7 +488,7 @@ Todo este sistema foi implementado na mesma rota, \textit{/reset-pass}. Ao acede
 
 Após a criação desta primeira tela, foi desenvolvida uma segunda página numa sub-rota, \textit{/reset-pass/[token]}. É nesta página que o utilizador pode redefinir a sua palavra-passe. Para tal, deve confirmar o seu endereço de \textit{email} e introduzir a nova palavra-passe.
 
-Foi possível implementar esta funcionalidade graças ao sistema de rotas dinâmicas do \textit{SvelteKit}, ao utilizar o padrão \textit{[slug]}\cite{sveltekit.routing.url}. Este tipo de rota permite criar páginas que recebem parâmetros diretamente na \textit{URL}, o que possibilita o uso da mesma estrutura de rota para diferentes finalidades, basta adicionar o token presente no endereço. Após a alteração bem-sucedida da palavra-passe, o utilizador é automaticamente redirecionado para a página de \textit{login}, conforme ilustrado na \autoref{fig:resetPassResetSuc}.
+Foi possível implementar esta funcionalidade graças ao sistema de rotas dinâmicas do \textit{SvelteKit}, ao utilizar o padrão \textit{[slug]}\cite{sveltekit.routing.url}. Este tipo de rota permite criar páginas que recebem parâmetros diretamente na \textit{URL}, o que possibilita o uso da mesma estrutura de rota para diferentes finalidades, basta adicionar o \textit{token} presente no endereço. Após a alteração bem-sucedida da palavra-passe, o utilizador é automaticamente redirecionado para a página de \textit{login}, conforme ilustrado na \autoref{fig:resetPassResetSuc}.
 
 Para tornar todo este sistema funcional e, simultaneamente, garantir que apenas utilizadores autenticados tenham acesso às páginas protegidas, foi implementado um sistema de redirecionamento. Este sistema verifica se o utilizador está autenticado; caso não esteja, é automaticamente redirecionado para a página de \textit{login}. No entanto, existem exceções, nomeadamente as páginas relacionadas com a recuperação de palavra-passe, que permanecem acessíveis mesmo sem autenticação, de forma a permitir que o utilizador consiga redefinir a suas credenciais.
 
@@ -420,7 +534,7 @@ Esta página é responsável por apresentar os dispositivos, bem como o uptime d
 \subsubsection{\textbf{Componente \textit{device stats}}}
 Este componente foi desenvolvido com o propósito de mostrar informações sobre cada um dos dispositivos existentes. Para além de dados gerais, como nível da bateria, versão do \textit{hardware}, versão do \textit{firmware}, o número de ficheiros e a data da ultima comunicação, o componente disponibiliza também informação relativa ao \textit{uptime} do dispositivo.
 
-O uptime é calculado com base nos pedidos de \acs{gps} realizados pelo dispositivo.Cada dispositivo efetua um pedido de localização a cada 6 minutos, o que resulta num máximo teórico de 240 pedidos por dia. Com base neste valor, é possível determinar a percentagem de tempo em que o dispositivo esteve operacional num determinado dia, \autoref{fig:device-statsComp}.
+O \textit{uptime} é calculado com base nos pedidos de \acs{gps} realizados pelo dispositivo. Cada dispositivo efetua um pedido de localização a cada 6 minutos, o que resulta num máximo teórico de 240 pedidos por dia. Com base neste valor, é possível determinar a percentagem de tempo em que o dispositivo esteve operacional num determinado dia, \autoref{fig:device-statsComp}.
 
 \begin{figure}[h!]
     \centering
@@ -443,20 +557,25 @@ Esta página contem, de forma simples, uma tabela composta por múltiplos compon
 \subsection{Página de utilizadores} 
 A página foi criada a partir de outra já existente na aplicação. Anteriormente, existia uma página exclusiva para os \textit{Owners} do projeto, onde era possível remover e adicionar utilizadores aos \textit{tenants}, desativá-los, promovê-los a administradores de cada \textit{tenant} e enviar um email para recuperação da palavra-passe. Foram efetuadas alterações nessa página com o intuito de manter um design mais consistente.
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{figs/userOWNER.png}
-    \caption{Página \textit{user} para \textit{owners}}
-    \label{fig:user-Owner}
-\end{figure}
-
 A nova página destina-se exclusivamente aos administradores dos \textit{tenants}. Nela, os administradores podem adicionar novos utilizadores ao \textit{tenant}, desativá-lo, promovê-lo a administrador e enviar emails para recuperação da palavra-passe.
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{figs/userAdmin.png}
-    \caption{Página \textit{user} para \textit{tenant admins}}
-    \label{fig:user-Admin}
+\begin{figure}[!h]
+	\centering
+	\begin{subfigure}[c]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figs/userAdmin.png}
+		\caption{Página \textit{user} para \textit{tenant admins}}
+		\label{fig:user-Admin}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[c]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figs/userOWNER.png}
+		\caption{Página \textit{user} para \textit{owners}}
+		\label{fig:user-Owner}
+	\end{subfigure}
+	\caption{Páginas para gerir utilizadores}
+    \label{fig:gestUsers}
 \end{figure}
 
 Nesta fase de desenvolvimento, procedi a uma pequena alteração na \textit{nav bar} para que esta torne-se dinâmica, adapte-se às permissões dos utilizadores. Assim, os utilizadores normais não têm acesso ao link para gestão de utilizadores, os administradores são redirecionados para \textit{/tenant\_users} e os \textit{owners} para \textit{/users}.
@@ -479,6 +598,23 @@ Os dados provenientes do acelarômetro são apresentados de forma normalizada, a
 
 Esta normalização permite obter um valor que representa a intensidade de movimento do animal, o que facilita uma análise visual mais clara e concisa. Simultaneamente, a variação da temperatura é apresentada no mesmo gráfico, mas num eixo distinto, o que possibilita a correlação entre a temperatura e o movimento do animal.
 
+Surgiu um contratempo durante a realização desta página. Para apresentar os dados de forma mais fidedigna, de modo a perceber o \textit{uptime} e \textit{downtime} dos dispositivos, foi necessário mostrar, propositadamente, lacunas nos dados. Para tal, foi necessário criar uma lista com todas os minutos existentes durante o período de pesquisa, o que gera 1440 registos para um único dia, 24 horas. Posteriormente, verificava-se se cada uma das amostras pertencia a um determinado minuto. Se pertencia, apresentavam-se os valores do acelerómetro e da temperatura com a data, hora, minuto e segundo da sua recolha. Caso contrário, inseria-se um valor nulo, de modo a assinalar a ausência de amostra nesse momento.
+% \begin{wrapfigure}{r}{0.5\textwidth}
+%   \begin{center}
+%     \includegraphics[width=0.48\textwidth]{figs/echartData.png}
+%   \end{center}
+%   \caption{Codigo verificar acelarômetro e temperatura}
+%   \label{fig:selectAccAndTemp}
+% \end{wrapfigure}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.47\textwidth]{figs/echartData.png}
+	\caption{Codigo verificar acelarômetro e temperatura}
+	\label{fig:selectAccAndTemp}
+\end{figure}
+
+\clearpage
 \subsection{Página de erro} % Fechada
 Foi criada uma nova página de erro, mais alinhada com o design da aplicação. Para a sua implementação, conforme ilustrado na \autoref{fig:404}, foi utilizada uma funcionalidade nativa do \textit{sveltekit}. Ao criar uma página de erro na raiz da aplicação, como demonstrado na \autoref{fig:errorRoute}, todos os erros que ocorram durante a navegação são automaticamente redirecionados para essa página.
 
@@ -502,27 +638,51 @@ Desta forma, foi possível desenvolver uma página de erro genérica, aplicável
 	\caption{Erro}
 \end{figure}
 
+\subsection{Componente data hora} % Fechada
+A biblioteca de componentes, \textit{flowbite}, não contém nenhum componente que permita ao utilizador selecionar uma data e hora para cada dia. Decidi então desenvolver um componente próprio. Para tal, reutilizei o componente de seleção de data do \textit{flowbite} e adicionei um campo que permite a seleção das horas. Neste caso, o primeiro campo de hora corresponde ao primeiro dia, e o segundo ao segundo dia. Assim, conseguimos selecionar de forma mais precisa os intervalos desejados para a pesquisa.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=\textwidth]{figs/datepicker.png}
+	\caption{Componente \textit{Datepicker}}
+	\label{fig:Datepicker}
+\end{figure}
+
+\begin{multicols}{2}
+Tive ainda de criar algumas funcionalidades no componente para definir automaticamente as horas e as datas ao seleciona-las.
+
+\columnbreak
+
+\begin{center}
+	\includegraphics[width=0.8\columnwidth]{figs/componenteClick.png}
+	\captionof{figure}{Selecionar data no componente \textit{Datepicker}}
+	\label{fig:SelecionarDatepicker}
+\end{center}
+\end{multicols}
+
 \clearpage
 \subsection{Rotas sem inicio de sessão}\label{sec:noLoginInterface} % Fechada
 Uma das últimas tarefas que foram-me atribuídas durante o estágio foi a criação de duas rotas que permitissem a visualização de dados dos dispositivos sem necessidade de autenticação. A nova rota foi chamada de \textit{/app-gaime} e inclui duas sub-rotas: \textit{/map} e \textit{/chart}.
 
-\begin{figure}[!h]
-	\centering
-	\begin{subfigure}[c]{0.45\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{figs/appGaimeMap.png}
-		\caption{Página \textit{app-gaime/map}}
-		\label{fig:appGaimeMap}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[c]{0.45\textwidth}
+\begin{multicols}{2}
+	\begin{center}
         \centering
-        \includegraphics[width=\textwidth]{figs/appGaimeChart.png}
-		\caption{Página \textit{app-gaime/map}}
+		\includegraphics[width=0.8\columnwidth]{figs/appGaimeMap.png}
+		\captionof{figure}{Página \textit{app-gaime/map}}
+		\label{fig:appGaimeMap}
+	\end{center}
+
+\columnbreak
+
+\begin{center}
+		\centering
+        \includegraphics[width=0.8\columnwidth]{figs/appGaimeChart.png}
+		\captionof{figure}{Página \textit{app-gaime/map}}
         \label{fig:appGaimeChart}
-	\end{subfigure}
-	\caption{Páginas \textit{app-gaime}}
-\end{figure}
+\end{center}
+\end{multicols}
+
+Para selecionar o dispositivo do qual queremos ver os dados, é necessário introduzir o seu \textit{id} na barra de pesquisa, \textit{/app-gaime/[device\_id]}.
 
 Por padrão, a rota do mapa , \autoref{fig:appGaimeMap}, solicita ao servidor todos os pontos com coordenadas \acs{gps} registados nas últimas 24 horas. De forma semelhante, a rota do gráfico, \autoref{fig:appGaimeChart}, recupera informações relativas ao acelarômetro e temperatura no mesmo intervalo de tempo. 
 
@@ -533,53 +693,24 @@ Para melhorar a usabilidade da aplicação, foram implementadas funcionalidades 
 
 A referida biblioteca simplifica a utilização das \textit{stores} do \textit{Svelte}, armazena informações no \textit{local storage} do \textit{browser}. Essa abordagem permite ao utilizador navegar entre as páginas sem perder os filtros previamente definidos.
 
-\begin{figure}[!h]
-	\centering
-	\begin{subfigure}[c]{0.45\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{figs/store.png}
-		\caption{Criação das \textit{stores}}
-		\label{fig:store}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[c]{0.45\textwidth}
+
+\begin{multicols}{2}
+	\begin{center}
         \centering
-        \includegraphics[width=\textwidth]{figs/store.svelte.png}
-		\caption{Utilização das \textit{stores} num ficheiro \textit{.svelte}}
+        \includegraphics[width=0.9\columnwidth]{figs/store.svelte.png}
+		\captionof{figure}{Utilização das \textit{stores} num ficheiro \textit{.svelte}}
         \label{fig:store.svelte}
-	\end{subfigure}
-	\caption{\textit{Svelte persisted store}}
-\end{figure}
+	\end{center}
 
-\clearpage 
-\subsection{Alterações no \textit{design system}} % Fechada
-Uma das tarefas que executei durante o desenvolvimento deste projeto foi a reformulação da interface, alteração que abrangeu todas as páginas da aplicação.
+\columnbreak
 
-Para tornar essa reformulação possível, alterei o tema principal. O tema anterior, gerado automaticamente pelo \textit{tailwind} a partir de uma única cor, originou uma paleta cromática que se afastava da identidade visual pretendida para a aplicação.
-
-A \autoref{fig:tailwindGeneratedColors} mostra que as tonalidades mais claras da aplicação apresentavam um azul claro que não se combinava com as restantes cores. Para corrigir essa incoerência, alterei a paleta cromática para um sistema de sombras, mantendo a mesma cor base em variações mais claras e mais escuras. O novo esquema confere um aspeto mais agradável à seleção de botões, às colunas das tabelas, aos realces e aos demais elementos.
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{figs/tailwindGeneratedColors.png}
-    \caption{Cores geradas pela tailwind}
-    \label{fig:tailwindGeneratedColors}
-\end{figure}
-
-Esta mudança de paleta assegura que a interface respeite a identidade visual definida. A cor base mantém-se, mas apresenta-se em sombras progressivamente mais claras e mais escuras, o que gera uma hierarquia visual consistente. Os componentes que antes exibiam um azul claro passam a integrar-se no conjunto cromático, o que melhora a leitura e a navegação. O resultado oferece uma experiência mais coesa e agradável para o utilizador.
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{figs/shades.png}
-    \caption{Cores geradas por sombra}
-    \label{fig:shadesColors}
-\end{figure}
-
-Foram também efetuadas alterações às bibliotecas de ícones. Anteriormente, a aplicação dispunha de uma biblioteca com um número reduzido de ícones, fator que limitava as possibilidades de desenvolvimento. Instalei uma nova biblioteca, \href{https://tabler.io/icons}{Tabler}, que apresenta uma vasta gama de opções.
-
-Com o objetivo de tornar a interface mais harmoniosa, introduziram-se alterações que permitem a várias páginas reutilizar componentes, quer do \textit{Flowbite}, quer desenvolvidos internamente.
-
-Esta abordagem aumenta a consistência visual e reduz o esforço necessário de desenvolvimento, ao evitar duplicação de código e simplificar a manutenção. Como resultado, a aplicação apresenta um aspeto mais uniforme e permite atualizações mais rápidas no futuro.
+\begin{center}
+		\centering
+		\includegraphics[width=0.9\columnwidth]{figs/store.png}
+		\captionof{figure}{Criação das \textit{stores}}
+		\label{fig:store}
+\end{center}
+\end{multicols}
 
 \clearpage
 \section{Servidor da aplicação}
@@ -602,7 +733,6 @@ Neste caso, o projeto funciona da seguinte forma. Existem dois "projetos" dentro
 
 Dentro deste projeto base, encontra-se um sub-projeto específico, no nosso caso referido por \textit{aniposture}, que reúne as ações específicas, tais como a gestão de dispositivos, gateways, animais, o servidor \textit{UDP} para receção pacotes \acs{gps}, entre outros.
 
-\clearpage
 \subsection{Rota para obter número de pedidos por dispositivo} % REVER
 % Este foi dos trabalhos mais interessantes que realizei, simples mas muito  interessante. Foi "desafiado" a alterar uma das rotas da aplicação de forma a deixa-la mais util e com mais informação. 
 
@@ -618,7 +748,7 @@ A rota preexistente exibia a quantidade de pedidos efetuados por cada dispositiv
 
 Apesar de cumprir a sua função inicial, que era mostrar como os dispositivos comunicavam, a rota tinha pontos negativos, tais como a consulta dos dados ser apenas possível no dia seguinte ou a necessidade de especificar uma data, entre outros.
 
-Para a melhorar, realizei as seguintes alterações: para cada pedido, enviam-se agora apenas dois dados, o dispositivo e a quantidade de dias a pesquisar. A rota passa a retornar dados detalhados, como a quantidade de pontos \acs{gps}, de pontos sem \acs{gps} e os registos de \textit{boot} (que são enviados quando o dispositivo liga-se à rede), e também o total de pontos por dia. Com esta alteração, são também reportados os dias em que não houve comunicação. Desta forma, é possível identificar se o dispositivo apresentou alguma anomalia nesse dia.
+Para a melhorar, realizei as seguintes alterações: para cada pedido, enviam-se agora apenas dois dados, o dispositivo e a quantidade de dias a pesquisar. A rota passa a retornar dados detalhados, como a quantidade de pontos \acs{gps}, de pontos sem \acs{gps} e os registos de \textit{boot}, que são enviados quando o dispositivo liga-se à rede, e também o total de pontos por dia. Com estas alterações, são também reportados os dias em que não houve comunicação. Desta forma, é possível identificar se o dispositivo apresentou alguma anomalia nesse dia.
 
 % \subsubsection{\textbf{SQL}}
 % Para realizar esta rota, um pouco mais complexa do que outras, utilizei \acs{sql} puro em vez da \acs{orm}. As \acs{orm} são muito interessantes quando temos rotas mais simples, mas neste caso provavelmente seria um problema.
@@ -660,7 +790,7 @@ Esta \textit{query} integra o seguinte: duas relações temporárias, uma para o
 		\centering
 		\includegraphics[width=\textwidth]{figs/sqlCountFrame.png}
 		\caption{SQL para rota \textit{/countFrame}, nova rota.}
-		\label{fig:sqlCountDaily}
+		\label{fig:sqlCountFrame}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[c]{0.45\textwidth}
@@ -679,7 +809,7 @@ Esta rota teve como propósito alimentar uma das páginas da interface do projet
 
 Esta reestruturação não só otimizou a rota em termos de dados, mas também conferiu um valor analítico superior. A capacidade de identificar dias sem comunicação, permite diagnosticar falhas de conexão ou potenciais anomalias nos dispositivos, algo que a versão anterior não proporcionava.
 
-A opção por \textit{SQL} em detrimento da \acs{orm} revelou-se essencial para assegurar a agregação complexa de diversos tipos de pontos, com \acs{gps}, sem \acs{gps} e de \textit{boot}. A deteção de períodos sem atividade fornece à interface dados mais robustos e detalhados para o utilizador.
+A opção por \acs{sql} em detrimento da \acs{orm} revelou-se essencial para assegurar a agregação complexa de diversos tipos de pontos, com \acs{gps}, sem \acs{gps} e de \textit{boot}. A deteção de períodos sem atividade fornece à interface dados mais robustos e detalhados para o utilizador.
 
 \clearpage
 \subsection{Sistema de envio de emails} % REVER
@@ -696,7 +826,7 @@ A opção por \textit{SQL} em detrimento da \acs{orm} revelou-se essencial para 
 
 O sistema de emails foi outra das alterações que realizei durante o estágio. No próprio \textit{backend} já existia uma configuração de email em funcionamento, mas alguns problemas impediam o seu envio.
 
-Foram corrigidos alguns problemas nas rotas de \textit{reset-pass} e \textit{change-pass}. A rota \textit{reset-pass} é responsável pelo envio do email ao utilizador, e foi aqui que as alterações se focaram, principalmente no \textit{template} do email. O \textit{template} existente não se alinhava com o \textit{design system} da aplicação, nem com o seu propósito.
+Foram corrigidos alguns problemas nas rotas de \textit{reset-pass} e \textit{change-pass}. A rota \textit{reset-pass} é responsável pelo envio do email ao utilizador, aqui foram realizadas alterações no \textit{template} do email. O \textit{template} existente não alinhava-se com o \textit{design system} da aplicação, nem com o seu propósito.
 
 \begin{figure}[!h]
 	\centering
@@ -717,14 +847,50 @@ Foram corrigidos alguns problemas nas rotas de \textit{reset-pass} e \textit{cha
 \end{figure}
 
 
-A rota \textit{change-pass}, por sua vez, permite a alteração da palavra-passe. Aqui, foi identificado um problema considerado invulgar: ao criar o \textit{hash} da nova palavra-passe, a função de \textit{hash} era invocada tanto no \textit{controller} como no \textit{service}, o que resultava na criação do \textit{hash} do \textit{hash}. Por consequencia, era impossível aceder com a palavra-passe definida.
+A rota \textit{change-pass}, por sua vez, permite a alteração da palavra-passe. Aqui, foi identificado um problema que considero invulgar: ao criar o \textit{hash} da nova palavra-passe, a função de \textit{hash} era invocada tanto no \textit{controller} como no \textit{service}, o que resultava na criação do \textit{hash} do \textit{hash}. Por consequencia, era impossível aceder com a palavra-passe definida.
 
 Foram ainda implementadas outras alterações nesta rota, que incluem a verificação do \textit{token} e a alteração do seu formato, para que contenha apenas letras minúsculas, maiúsculas, hífens e \textit{underscores}. Não deve conter caracteres especiais, como os símbolos de igual ou de interrogação, dado que estes podem comprometer a estrutura dos \textit{links} no \textit{frontend}. A presença de um ponto de interrogação num URL, por exemplo, pode ser interpretada como o início de parâmetros, o que não corresponde ao formato pretendido para os \textit{tokens}.
 
-No que respeita à verificação do \textit{token}, foram introduzidas alterações na sua forma de validação. Cada \textit{token} tem uma validade de 15 minutos a contar do momento da que é inserido na base de dados. Se a data atual exceder em 15 minutos a data de criação do \textit{token}, este é considerado inválido. Em caso de atualização bem sucedida da palavra-passe, não é necessário efetuar esta verificação, uma vez que o \textit{token} é removido após a atualização da palavra-passe. Assim, se o utilizador tentar reutilizar o mesmo \textit{token}, não o conseguirá.
+No que respeita à verificação do \textit{token}, foram introduzidas alterações na sua forma de validação. Cada \textit{token} tem uma validade de 15 minutos a contar do momento da que é inserido na base de dados. Se a data atual exceder em 15 minutos a data de criação do \textit{token}, este é considerado inválido. Em caso de atualização bem sucedida da palavra-passe, não é necessário efetuar esta verificação, uma vez que o \textit{token} é removido após a atualização da palavra-passe. Assim, se o utilizador tentar reutilizar o mesmo \textit{token}, não o conseguirá fazer.
 
 As alterações asseguraram não só a correção de falhas técnicas, mas também a melhoria da experiência do utilizador e a robustez da segurança da aplicação. Adequar os templates de email ao \textit{design system} da aplicação contribuiu para uma comunicação mais clara para com os utilizadores. Simultaneamente, as medidas de validação do \textit{token}, tanto no formato como na validade, em conjunto com a correção do erro do \textit{hash do hash},
 mitigam riscos de segurança, protegem a integridade dos dados do utilizador e fortalecem a confiança no sistema de autenticação e recuperação de palavra-passe.
+
+\subsection{Rotas para aceder a dados sem \textit{login}}\label{sec:noLoginAppGaime} % REVER
+% Foram criadas duas rotas para a aplicação que permite aceder a algumas informações sem necessidade de login, estas foram as rotas criadas no \textit{backend} para suportar a interface \textit{/app-gaime}, \autoref{sec:noLoginInterface}.
+
+% Dentro do \textit{controller} do \textit{gpsSample} e também foi criada uma rota, no \textit{controller} da \textit{sample}. Diferente das outras rotas onde, é enviado no \textit{header} o \textit{tenant} que o utilizador tem selecionado, neste caso queremos apenas ir buscar informações a um \textit{tenant}. Para fazer isso tive de dar \textit{overwrite} do \textit{tenant} escolhido no serviço, e depois fazer o pedido à base de dados através do \acs{orm}.
+
+% Existe um \textit{bug} no \textit{Ebean} que faz com que a modificação manual do tenant não afete o \textit{schema} escolhido por isso teve de ser adicionado o \textit{tenant} à mão no pedido.
+
+% NEW
+
+Foram criadas duas rotas para a aplicação que permitem aceder a algumas informações sem necessidade de \textit{login}. Estas rotas foram desenvolvidas no \textit{backend} para suportar a interface \textit{/app-gaime}, conforme detalhado na \autoref{sec:noLoginInterface}.
+
+Criou-se uma rota no \textit{controller} do \textit{gpsSample}, e outra no \textit{controller} da \textit{sample}. Ao contrário das outras rotas, nas quais envia-se no \textit{header} o \textit{tenant} que o utilizador tem selecionado, neste caso pretendemos obter informações de um \textit{tenant} específico. Para tal, tive de sobrepor o \textit{tenant} selecionado no serviço e, em seguida, efetuar o pedido à base de dados através da \acs{orm}.
+
+Existe um \textit{bug} no \textit{Ebean} que faz com que a modificação manual do \textit{tenant} não afete o \textit{schema} selecionado. Por isso, foi necessário adicionar o \textit{tenant} manualmente ao pedido.
+
+\begin{figure}[!h]
+	\centering
+	\begin{subfigure}[c]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{figs/gpsSampleController.png}
+		\caption{\textit{Controller} gpsSample}
+		\label{fig:controllerGpsSample}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/gpsSampleService.png}
+		\caption{\textit{Service} gpsSample}
+        \label{fig:serviceGpsSample}
+	\end{subfigure}
+	\caption{Codigo para criação das rotas \textit{/noAuth}}
+\end{figure}
+
+A criação destas rotas ampliou as funcionalidades da interface, \textit{/app-gaime}, uma vez que que permitem aceder aos dados dos pontos \acs{gps}, do acelarômetro e da temperatura sem necessidade de iniciar sessão.
+
 
 \clearpage
 \subsection{Dados do \textit{acc} e de temperatura no sample} % REVER
@@ -757,7 +923,7 @@ Pelas comunicações serem realizadas através de \acs{udp}, pode acontecer que 
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{figs/error.png}
+	\includegraphics[width=0.75\textwidth]{figs/error.png}
 	\caption{Erro de integridade ao guardar dados}
 	\label{fig:integretyErro}
 \end{figure}
@@ -794,42 +960,6 @@ A perda de integridade da informação, que resulta da perda de pacotes \acs{udp
 Ao contornar o \textit{bug} do \textit{Ebean} através da identificação prévia dos campos únicos no serviço, \autoref{fig:codeForNewSample}, é essencial para assegurar a continuidade da informação dos pontos \acs{gps}, não \acs{gps} e de \textit{boot}.
 
 \clearpage
-\subsection{Rotas para aceder a dados sem \textit{login}}\label{sec:noLoginAppGaime} % REVER
-% Foram criadas duas rotas para a aplicação que permite aceder a algumas informações sem necessidade de login, estas foram as rotas criadas no \textit{backend} para suportar a interface \textit{/app-gaime}, \autoref{sec:noLoginInterface}.
-
-% Dentro do \textit{controller} do \textit{gpsSample} e também foi criada uma rota, no \textit{controller} da \textit{sample}. Diferente das outras rotas onde, é enviado no \textit{header} o \textit{tenant} que o utilizador tem selecionado, neste caso queremos apenas ir buscar informações a um \textit{tenant}. Para fazer isso tive de dar \textit{overwrite} do \textit{tenant} escolhido no serviço, e depois fazer o pedido à base de dados através do \acs{orm}.
-
-% Existe um \textit{bug} no \textit{Ebean} que faz com que a modificação manual do tenant não afete o \textit{schema} escolhido por isso teve de ser adicionado o \textit{tenant} à mão no pedido.
-
-% NEW
-
-Foram criadas duas rotas para a aplicação que permitem aceder a algumas informações sem necessidade de \textit{login}. Estas rotas foram desenvolvidas no \textit{backend} para suportar a interface \textit{/app-gaime}, conforme detalhado na \autoref{sec:noLoginInterface}.
-
-Criou-se uma rota no \textit{controller} do \textit{gpsSample}, e outra no \textit{controller} da \textit{sample}. Ao contrário das outras rotas, nas quais envia-se no \textit{header} o \textit{tenant} que o utilizador tem selecionado, neste caso pretendemos obter informações de um \textit{tenant} específico. Para tal, tive de sobrepor o \textit{tenant} selecionado no serviço e, em seguida, efetuar o pedido à base de dados através da \acs{orm}.
-
-Existe um \textit{bug} no \textit{Ebean} que faz com que a modificação manual do \textit{tenant} não afete o \textit{schema} selecionado. Por isso, foi necessário adicionar o \textit{tenant} manualmente ao pedido.
-
-\begin{figure}[!h]
-	\centering
-	\begin{subfigure}[c]{0.45\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{figs/gpsSampleController.png}
-		\caption{\textit{Controller} gpsSample}
-		\label{fig:controllerGpsSample}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[c]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figs/gpsSampleService.png}
-		\caption{\textit{Service} gpsSample}
-        \label{fig:serviceGpsSample}
-	\end{subfigure}
-	\caption{Codigo para criação das rotas \textit{/noAuth}}
-\end{figure}
-
-A criação destas rotas ampliou as funcionalidades da interface, \textit{/app-gaime}, uma vez que que permitem aceder aos dados dos pontos \acs{gps}, do acelarômetro e da temperatura sem necessidade de iniciar sessão.
-
-\clearpage
 \subsection{Correção de um \textit{bug} que duplicava dados} % REVER
 % Durante o tempo de estágio, eu e alguns colegas de trabalho, reparamos que existia a duplicação de alguns dados, dados que apenas deviam estar a ser guardados uma vez.
 
@@ -837,21 +967,19 @@ A criação destas rotas ampliou as funcionalidades da interface, \textit{/app-g
 
 % NEW 
 
-Durante o estágio, eu e alguns colegas de trabalho reparámos na duplicação de certos dados, que deveriam ser armazenados apenas uma vez.
+Durante o estágio, eu e alguns colegas de trabalho reparámos na duplicação de certos dados, que deveriam ser armazenados apenas uma vez. Isto acontecia quando um dispositivo ficava \textit{offline} durante algum tempo. Nesse período, o dispositivo persistia na tentativa de ligação à rede e envio de pacotes para o servidor. Por não conseguir enviá-los, guardava-os num \textit{buffer} interno para a retransmitir quando voltasse a ligar-se. Ao permanecer \textit{offline} durante algum tempo, o dispositivo gera um pacote com informações sobre o período de desconexão, o número de tentativas de ligação efetuadas, entre outros dados.
 
-Isto acontecia quando um dispositivo ficava \textit{offline} durante algum tempo. Nesse período, o dispositivo persistia na tentativa de ligação à rede e envio de pacotes para o servidor. Por não conseguir enviá-los, guardava-os num \textit{buffer} interno para a retransmitir quando voltasse a ligar-se. Ao permanecer \textit{offline} durante algum tempo, o dispositivo gera um pacote com informações sobre o período de desconexão, o número de tentativas de ligação efetuadas, entre outros dados.
-
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=0.70\textwidth]{figs/flowOffline.png}
-	\caption{Flow de envio quando o dispositivo encontra-se \textit{offline}}
-	\label{fig:flowOffline}
-\end{figure}
-
-Ao ligar-se finalmente à rede, cada dispositivo enviava um pacote de localização, com dados \acs{gps} ou sem \acs{gps}, caso não conseguisse os primeiros. No momento dessa ligação, apenas o pacote criado nesse instante devia incluir as informações da rede. Contudo, todos os outros pacotes, que tinham sido gerados enquanto o dispositivo esteve \textit{offline}, guardavam, indevidamente, essa mesma informação de rede.
+Ao ligar-se finalmente à rede, cada dispositivo enviava um pacote de localização, com dados \acs{gps} ou sem \acs{gps}, caso não obtivesse localização. No momento dessa ligação, apenas o pacote criado nesse instante devia incluir as informações da rede. Contudo, todos os outros pacotes, que tinham sido gerados enquanto o dispositivo esteve \textit{offline}, guardavam, indevidamente, essa mesma informação de rede.
 
 Isto constitui um problema, pois pode induzir em erro quem verifica a informação, uma vez que, na realidade, apenas um desses pacotes conseguiu ligar-se à rede, pelo que só esse devia apresentar os dados de rede.
 
-Para resolver este problema efetuaram-se várias alterações do servidor \textit{UDP} do \textit{backend}. Sempre que chega novos pacotes ao servidor, estes dados são processados da seguinte forma, primeiramente, sempre que um dispositivo estabelece ligação, envia um pacote chamado \textit{DEVICE\_INFO}, que inclui informações do estado atual, nível da bateria, o estado dos módulos internos, a versão de \textit{firmware}, entre outros. 
+Para resolver este problema efetuaram-se várias alterações do servidor \acs{udp} do \textit{backend}. Sempre que chega novos pacotes ao servidor, estes dados são processados da seguinte forma, primeiramente, sempre que um dispositivo estabelece ligação, envia um pacote chamado \textit{DEVICE\_INFO}, que inclui informações do estado atual, nível da bateria, o estado dos módulos internos, a versão de \textit{firmware}, entre outras informações. 
 
-A ordem de envio de pacotes, permite ao servidor perceber o estado do dispositivo antes da ligação, se esteve \textit{offline} ou \textit{online}. Se em seguida o servidor receber um pacote de \textit{stats}, informações sobre o dispositivo durante o tempo que esteve \textit{offline}, conclui-se que o dispositivo esteve \textit{offline} durante periodo de tempo. Neste cenário, o pacote seguinte, um \acs{gps} ou sem \acs{gps}, deverá guardar as informações da rede. Já os restantes pacotes, deste mesmo conjunto, não terá informações de rede pois são dados registados enquanto o dispositivo encontrava-se \textit{offline}. É ainda importante mencionar que o dispositivo envia todos os dados núm único pacote \textit{UDP}, composto por um determinado número de \textit{bytes}. Cada segmento deste bloco corresponde a um tipo especifico pacote, o que assegura a sua distinção e o processamento correto dos dados.
+A ordem de envio de pacotes, permite ao servidor perceber o estado do dispositivo antes da ligação, se esteve \textit{offline} ou \textit{online}. Se em seguida o servidor receber um pacote de \textit{stats}, informações sobre o dispositivo durante o tempo que esteve \textit{offline}, conclui-se que o dispositivo esteve \textit{offline} durante periodo de tempo. Neste cenário, o pacote seguinte, um \acs{gps} ou sem \acs{gps}, deverá guardar as informações da rede. Já os restantes pacotes, deste mesmo conjunto, não terão informações de rede pois são dados registados enquanto o dispositivo encontrava-se \textit{offline}. É ainda importante mencionar que o dispositivo envia todos os dados núm único pacote \acs{udp}, composto por um determinado número de \textit{bytes}. Cada segmento deste bloco corresponde a um tipo especifico pacote, o que assegura a sua distinção e o processamento correto dos dados.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.43\textwidth]{figs/flowOffline.png}
+	\caption{Flow de envio quando o dispositivo encontra-se \textit{offline}}
+	\label{fig:flowOffline}
+\end{figure}
