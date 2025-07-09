@@ -16,7 +16,7 @@ set -e
 BUILD="build/tmp"
 
 function forceGray {
-    pdftops -level3sep "$1" "$1-aux.ps"
+    ps2pdf -level3sep "$1" "$1-aux.ps"
     gs -q -o "$1" -sDEVICE=pdfwrite -sColorConversionStrategy=Gray -sProcessColorModel=DeviceGray "$1-aux.ps"
     rm "$1-aux.ps"
 }
